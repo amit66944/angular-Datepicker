@@ -1,0 +1,45 @@
+<div class="date-picker-box" style="left: 300px;">
+    <md-input-container flex>
+        <label>{{labelName}}</label>
+        <input name="{{ inputName }}" readonly type="text" class="mb-input-field" data-ng-click="showPicker();" class="form-control" data-ng-model="dateValue" />
+    </md-input-container>
+
+    <div class="calender-box" data-ng-class="{'activeCalender': activeDate}" data-ng-if="activeDate">
+        <div class="month-year-box" layout="row" align="center">
+            <div class="left-shift moveLeftRight" flex="15" data-ng-click="goDownToDate();">
+                <md-icon md-svg-src="aDatePicker/images/arrow_left.svg"></md-icon>
+            </div>
+            <div class="display-yearMonth" flex="70">
+                <md-button data-ng-if="(level==0)" class=""><span class="month monthOption" data-ng-click="showMonthList()" >{{monthName}}</span> <span class="year yearOption" data-ng-click="increaseLevel()">{{yearName}}</span></md-button>
+                <md-button data-ng-if="(level==1)" data-ng-click="increaseLevel()" class=""><span class="year">{{yearName}}</span></md-button>
+                <md-button data-ng-if="(level==2)" class=""><span class="yearRangeFrom">{{yearFrom}}</span> - <span class="yearRangeTo">{{yearTo}}</span></md-button>
+                <md-button data-ng-if="(level==4)" class=""><span class="monthSelected">{{monthName}}</span></md-button>
+            </div>
+            <div class="right-shift moveLeftRight" flex="15" data-ng-click="goUpToDate();">
+                <md-icon md-svg-src="aDatePicker/images/arrow_right.svg"></md-icon>
+            </div>
+        </div>
+        <div class="week-names" layout="row" data-ng-if="(level==0)">
+            <div flex="15">S</div>
+            <div flex="15">M</div>
+            <div flex="15">T</div>
+            <div flex="15">W</div>
+            <div flex="15">T</div>
+            <div flex="15">F</div>
+            <div flex="15">S</div>
+        </div>
+        <div class="gapUp" data-ng-if="(level!=0)"></div>
+        <div class="days-number"  layout="row" data-ng-repeat="blocks in calenderDays" data-ng-if="(level==0)">
+            <div flex="15" data-ng-class="{'dayBox': (day != 'NaN')}" data-ng-repeat="day in blocks track by $index" data-ng-click="setDateClicked(day);">{{((day != 'NaN')?day:'')}}</div>
+        </div>
+        <div class="days-number"  layout="row" data-ng-repeat="blocks in calenderYears" data-ng-if="(level==1)">
+            <div flex="25" class="dayBox" data-ng-repeat="years in blocks track by $index" data-ng-click="onYearClick(years);">{{years}}</div>
+        </div>
+        <div class="days-number"  layout="row" data-ng-repeat="blocks in calenderYearsRanges" data-ng-if="(level==2)">
+            <div flex="35" class="dayBox" data-ng-repeat="years in blocks track by $index" data-ng-click="onYearRangeClick(years);">{{years["from"]+'-'+years["to"]}}</div>
+        </div>
+        <div class="days-number"  layout="row" data-ng-repeat="blocks in monthList" data-ng-if="(level==4)">
+            <div flex="35" class="dayBox monthNames" data-ng-repeat="monthName in blocks track by $index" data-ng-click="monthSelected(monthName);">{{monthName}}</div>
+        </div>
+    </div>
+</div>

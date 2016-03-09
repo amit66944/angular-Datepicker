@@ -1,0 +1,171 @@
+am-date-picker{
+    position: relative;
+}
+.date-picker-box{
+    max-width: 350px;
+    display: inline-block;
+}
+
+.date-picker-box md-input-container{
+    margin: 18px 0px 0px 0px;
+}
+
+.date-picker-box input{
+    cursor: pointer;
+    font-size: 14px;
+}
+
+.calender-box{
+    position: absolute;
+    min-width: 250px;
+    padding: 0px;
+    margin-left: -12px;
+    top: 21px;
+    left: 14px;
+    border: 1px solid #D8D8D8;
+    overflow: hidden;
+    background-color: #FFF;
+    box-shadow: 0px 2px 3px 0px #D2D2D2;
+}
+.activeCalender.ng-enter, .activeCalender.ng-leave {
+    -webkit-transition: linear 0.1s;
+    -moz-transition: linear 0.1s;
+    -ms-transition: linear 0.1s;
+    -o-transition: linear 0.1s;
+    transition: linear 0.1s;
+}
+.activeCalender.ng-enter{
+    webkit-transform-origin: top left;
+    -moz-transform-origin: top left;
+    -ms-transform-origin: top left;
+    transform-origin: top left;
+    animation: scaleUp 0.2s both ease-in;
+}
+.activeCalender.ng-leave{
+    webkit-transform-origin: top left;
+    -moz-transform-origin: top left;
+    -ms-transform-origin: top left;
+    transform-origin: top left;
+    animation: scaleDown 0.2s both ease-in;
+}
+.calender-box .month-year-box{
+    line-height: 40px;
+    vertical-align: middle;
+    background-color: #009688;
+}
+.calender-box .month-year-box .md-button{
+    color: #FFF;
+    background-color: #006C62;
+    padding: 0px 1px;
+    text-transform: capitalize;
+}
+.calender-box .month-year-box .moveLeftRight:hover{
+}
+.calender-box .month-year-box .left-shift{
+
+}
+.calender-box .month-year-box div{
+    display: inline-block;
+}
+.calender-box .month-year-box .right-shift{
+
+}
+.calender-box .month-year-box md-icon{
+    margin-top: 6px;
+}
+.calender-box .month-year-box .left-shift:hover,.calender-box .month-year-box .right-shift:hover{
+    -webkit-transition: linear 0.2s;
+    -moz-transition: linear 0.2s;
+    -ms-transition: linear 0.2s;
+    -o-transition: linear 0.2s;
+    transition: linear 0.2s;
+    background-color: #3F51B5;
+    cursor: pointer;
+}
+
+.calender-box .month-year-box .display-yearMonth{
+
+}
+
+.calender-box .month-year-box .display-yearMonth .yearOption{
+    padding: 0px 10px;
+    display: inline-block;
+    background-color: #736F6F;
+}
+.calender-box .month-year-box .display-yearMonth .yearOption:hover{
+    background-color: #3C8486;
+}
+
+.calender-box .month-year-box .display-yearMonth .monthOption{
+    padding: 0px 6px;
+    display: inline-block;
+}
+.calender-box .month-year-box .display-yearMonth .monthOption:hover{
+
+}
+
+.calender-box .week-names{
+    line-height: 40px;
+    background-color: #F9F7F7;
+}
+.calender-box .week-names div{
+    font-size: 12px;
+    text-align: center;
+}
+.calender-box .days-number{
+    line-height: 35px;
+}
+.calender-box .days-number div{
+    font-size: 12px;
+    text-align: center;
+    cursor: pointer;
+    -webkit-transition: linear 0.1s;
+    -moz-transition: linear 0.1s;
+    -ms-transition: linear 0.1s;
+    -o-transition: linear 0.1s;
+    transition: linear 0.1s;
+    -webkit-border-radius: 0px;
+    -moz-border-radius: 0px;
+    border-radius: 20px;
+    font-family: monospace;
+}
+.calender-box .days-number div.dayBox:hover{
+    -webkit-transition: linear 0.2s;
+    -moz-transition: linear 0.2s;
+    -ms-transition: linear 0.2s;
+    -o-transition: linear 0.2s;
+    transition: linear 0.2s;
+    background-color: #2D34FF;
+    -webkit-border-radius: 20px;
+    -moz-border-radius: 20px;
+    border-radius: 20px;
+    color: #FFF;
+    box-shadow: 0px 0px 2px 0px rgba(0, 0, 0, 0.4);
+    font-weight: bolder;
+}
+.calender-box .days-number div.dayBox.monthNames{
+    text-align: left;
+    text-indent: 10px;
+}
+
+.calender-box .days-number div:focus{
+    outline: none;
+}
+
+.calender-box .days-number.ng-enter{
+    animation: slideInRight 0.5s both ease-in;
+}
+.calender-box div.gapUp {
+    width: 100%;
+    padding: 3px 0px;
+}
+@keyframes slideInRight {
+    from    { transform:translateX(100%); }
+    to      { transform: translateX(0); }
+}
+@keyframes scaleUp {
+    from    { opacity: 0.3; -webkit-transform: scale(0.8); }
+}
+@keyframes scaleDown {
+    to    { opacity: 0; -webkit-transform: scale(0); }
+}
